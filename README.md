@@ -9,5 +9,17 @@ I will start with building a system with only CMD. When I think I am comforatabl
 
 Day 1: Mar 27-2019 - Created a couple of class and assigned a object to another object
 
-Day 2: Mar 28-2019 - 
+Day 2: Mar 28-2019 - Just worked on 15 mins on import a module sample
+
+
+Day 3: Mar 29-2019 
+Goal is to set up a simple command line system with two classes(Book and Author) in modules and a main program that gets in cmd four books 
+"Thinking fast and Slow" - daniel kahneman and amos tversky 
+"Sapiens" - Yuval Harari
+"21 Rules" - Yuval Harari 
+"Imaginary" - Yuval and Daniel Kahneman
+
+
+
+
 
