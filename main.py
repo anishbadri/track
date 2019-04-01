@@ -1,22 +1,42 @@
 # import Model.author as author
 # import Model.book as book
-from flask import Flask
-
-
+from flask import Flask, render_template, url_for
+from forms import RegistrationForm
 
 app = Flask(__name__)
 
+app.config['SECRET_KEY'] = 'cac873583f189291c68823d86860459a'
+
+books = [
+    {
+        "title": "When Breathe becomes air",
+        "author": "Paul Kalanidhi"
+    },
+    {
+        "title": "Flow",
+        "author": "Mihaly"
+    }
+]
+
 @app.route('/')
 def hello():
-    return "Hello World!"
+    return render_template('home.html', books=books)
 
+@app.route('/about')
+def about():
+    return render_template('about.html', title = 'About')
+
+@app.route('/register')
+def registration():
+    form = RegistrationForm()
+    return render_template('register.html', title='Registration', form = form)
 
 @app.route('/<name>')
 def hello_name(name):
     return "Hello {}!".format(name)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
 
 
