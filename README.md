@@ -20,6 +20,21 @@ Goal is to set up a simple command line system with two classes(Book and Author)
 "Imaginary" - Yuval and Daniel Kahneman
 
 
+Day 4: Apr 1-2019
+Started with Corey's videos in using flask. Set up the project to learn building a blog thing. Did around 2 videos
+
+Day 5: Apr 2-2019
+Finished  learning to use a db from command line upto 4 videos
+
+Day 6: Apr 3-2019
+Learning how to package the application. Want to finish the User Authentication atleast today. Rearing to know the stuff and build my own thing. Hopefully I will complete the learning in the next few days and start building my own stuff.
+
+
+
+
+
+
+
 
 
 
