@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect, request
-from track.forms import RegistrationForm, LoginForm, ProfileUpdateForm
+from track.forms import RegistrationForm, LoginForm, ProfileUpdateForm, PodacastEntryForm
 from track import app, bcrypt, db
-from track.models import User, Post
+from track.models import User, Post, Podcast
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -19,7 +19,8 @@ books = [
 
 @app.route('/')
 def hello():
-    return render_template('home.html', books=books)
+    pods = Podcast.query.all()
+    return render_template('home.html', pods=pods)
 
 # @app.route('/about')
 # def about():
@@ -84,4 +85,24 @@ def profile():
 
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template('profile.html', title='Profile Page', image_file= image_file, form=form)
+
+
+@app.route('/displayPodcast')
+@login_required
+def displayPodcast():
+    return redirect(url_for('hello'))
+
+
+
+@app.route('/addPodcast', methods=['GET', 'POST'])
+@login_required
+def addPodcast():
+    form = PodacastEntryForm()
+    if form.validate_on_submit():
+        podcast = Podcast(title = form.title.data, content=form.content.data, addedby =current_user)
+        db.session.add(podcast)
+        db.session.commit()
+        flash('Your Podcast has been added to the list', 'success')
+        return redirect(url_for('displayPodcast'))
+    return render_template('addPodcast.html', title='Add Podcast', form=form)
 
